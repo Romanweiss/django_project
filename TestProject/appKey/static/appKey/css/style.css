@@ -1,0 +1,41 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.search {
+    width: 80%;
+    margin: 0 auto;
+}
+
+.search-input {
+    border-radius: 40px;
+    border: none;
+    background-color: rgb(213, 199, 225);
+    width: 100%;
+    padding: 20px 50px;
+    font-size: 18px;
+    outline: none;
+    color: rgb(2, 23, 23);
+}
+
+/* .search:hover {
+    outline: rgb(94, 40, 141) solid 3px;
+} */
+
+.search ul {
+    width: 100%;
+    background-color: rgb(207, 185, 226);
+    padding: 0 50px;
+    border-radius: 20px;
+    color: white;
+}
+
+.search ul li {
+    padding: 10px 0;
+}
+
+.search ul li a {
+    color: rgb(255, 255, 255) ;
+    text-decoration: none;
+}
+
