@@ -9,5 +9,8 @@ urlpatterns = [
     path('api/', include('appApi.urls')),
     path('auth/', include('appAuth.urls')),
     path('summernote/', include('django_summernote.urls')),
+    path('data/', include('appResponseData.urls')),
+
+    path("__debug__/", include("debug_toolbar.urls")),
 ]
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
