@@ -11,19 +11,29 @@
 </head>
 <body>
 
-    {% for item in product %}
+    {% for product in product %}
         <div class="card">
-            {% if item.count != 0 %}
-                <h1>{{ item.title }}</h1>
-                <h3>{{ item.price }} ₽</h3>
-                <button id="addBucket" data-product-id="{{ item.id }}">Добавить в корзину</button>
+            {% if product.count != 0 %}
+                <h1>{{ product.title }}</h1>
+                <h3>{{ product.price }} ₽</h3>
+                <button id="addback" data-product-id="{{ product.id }}">Добавить в корзину</button>
             {% endif %}
         </div>
     {% endfor %}
 
-    <div class="bucket">
-        
-    </div>
+    <div class="back"></div>
+
+    <form action="{% url "urlMethodDjangoPost" %}" method="post">
+        {% csrf_token %}
+        <input name="genre" type="text" placeholder="Введите жанр: ">
+        <button>Отправить</button>
+    </form>
+
+    <form action="{% url "urlMethodAjaxPost" %}" method="post" id="FormAjax">
+        {% csrf_token %}
+        <textarea name="desc" cols="30" rows="10"></textarea>
+        <button>Отправить</button>
+    </form>
 
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     <script src="{% static "appShop/js/script.js" %}"></script>

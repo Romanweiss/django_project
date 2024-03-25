@@ -1,6 +1,4 @@
-from itertools import product
-from tkinter import NO
-from django.http import JsonResponse
+from django.http import HttpResponse, JsonResponse
 from django.shortcuts import render
 from django.views import View
 from .models import ProductShop
@@ -13,13 +11,37 @@ class HomePage(View):
 
     def post(self, request):
         product_id = request.POST["id"]
-        key_bucket = request.session.get("bucket")
-        if key_bucket == None:
-            request.session["bucket"] = [product_id]
-        else:
-            # data = list(request.session['bucket'])
-            # print(request.session)
-            request.session['backed'] = list(key_bucket) + [product_id]
-        
+        server_type = request.POST['type']
+        value_backed = request.session.get("backed")
+        if server_type == 'add':
+            if value_backed == None:
+                request.session["backed"] = [product_id]
+            else:
+                request.session['backed'] = list(value_backed) + [product_id]
+        elif server_type == 'remove':
+            index = 0
+            for item in value_backed:
+                if item == product_id:
+                    value_backed.pop(index)
+                    request.session['backed'] = value_backed
+                    break
+            index += 1
         print(request.session['backed'])
         return JsonResponse({})
+    
+
+class MethodDjangoPost(View):
+    def post(self, request):
+        title = request.POST['genre']
+        return HttpResponse(f'Форма сработала! {title}')
+    
+
+class MethodAjaxPost(View):
+    def post(self, request):
+        print(request.POST['textarea'])
+        return JsonResponse({
+            'status': 'ok',
+            
+        })
+    
+    
