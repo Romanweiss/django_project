@@ -22,7 +22,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django_summernote',
     # 'debug_toolbar'
-
+    'appRenderHtml',
     'appResponseData',
     
 ]

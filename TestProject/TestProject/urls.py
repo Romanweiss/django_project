@@ -11,6 +11,7 @@ urlpatterns = [
     path('summernote/', include('django_summernote.urls')),
     path('data/', include('appResponseData.urls')),
     path('shop/', include('appShop.urls')),
+    path('render/', include('appRenderHtml.urls')),
 
     # path("__debug__/", include("debug_toolbar.urls")),
 ]

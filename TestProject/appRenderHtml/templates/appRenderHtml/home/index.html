@@ -1,0 +1,30 @@
+{% extends "appRenderHtml/base.html" %}
+
+{% block title %}Домашняя страница{% endblock title %}
+
+{% block content %}
+    {% comment %} {% include "appRenderHtml/header.html" %}  {% endcomment %}
+
+    {{request.session.session_key}} <br>
+    {{request.user}} <br>
+    {{request.user.last_name}} <br>
+    {{request.user.first_name}} <br>
+    {{request.user.password}} <br>
+
+    <p>
+        {{ products.count }}
+        {% if products.count == 4 %}
+            <p>Всего 4 записи</p>
+        {% elif  products.count == 55 %}
+            <p>Всего 55 записей</p>
+        {% else %}
+            {% for product in products %}
+                {{product.id}} - {{product}} <br>
+                {{product.price}} <br>
+            {% endfor %}
+        {% endif %}
+    </p>
+
+
+{% endblock content %}
+
