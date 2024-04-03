@@ -6,12 +6,10 @@ SECRET_KEY = 'django-insecure-g=-&vg#)b2oi=@+cfl$#zv2=mhh12u5-h(ejd$+2pd^ex8oc@4
 DEBUG = True
 
 ALLOWED_HOSTS = []
+APPEND_SLASH = True
 
 INSTALLED_APPS = [
-    'appKey',
-    'appApi',
-    'appAuth',
-    'appShop',
+    
     # "admin_interface",
     # "colorfield",
     'django.contrib.admin',
@@ -20,10 +18,16 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
     'django_summernote',
-    # 'debug_toolbar'
+
+    'appKey',
+    'appApi',
+    'appAuth',
+    'appShop',
     'appRenderHtml',
     'appResponseData',
+    'appMethodAuth'
     
 ]
 X_FRAME_OPTIONS = "SAMEORIGIN"

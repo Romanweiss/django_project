@@ -12,6 +12,7 @@ urlpatterns = [
     path('data/', include('appResponseData.urls')),
     path('shop/', include('appShop.urls')),
     path('render/', include('appRenderHtml.urls')),
+    path('method-auth/', include('appMethodAuth.urls')),
 
     # path("__debug__/", include("debug_toolbar.urls")),
 ]
